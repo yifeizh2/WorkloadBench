@@ -33,9 +33,7 @@ def main():
                          "Anonymous compiler without coarse-grain fusion",
                          "Anonymous compiler"])
         for pack in zip(workload_names, primitive_perf, compiler_perf_wo_coarse, compiler_perf):
-            print(pack)
             writer.writerow(list(pack))
-
 
 
 if __name__ == "__main__":
