@@ -39,12 +39,9 @@ def main():
             def rule(element):
                 return element[0].split("_")[-1].split("@")[0]
             partition_time.sort(key=rule)
-            print(partition_time)
-            print(workload_shapes[i])
             for layer in range(len(partition_time)):
                 matmul_shape = ", ".join([str(workload_shapes[i][0]), str(workload_shapes[i][1][layer]),
                                          str(workload_shapes[i][1][layer + 1])])
-                print(matmul_shape)
                 dtype = "int8" if "INT8" in workload_names[i] else "f32"
                 if matmul_shape in execution_time_dict[dtype]:
                     continue

@@ -2,7 +2,12 @@
 set -e
 set -x
 
-export LD_PRELOAD=${LD_PRELOAD}:${CONDA_PREFIX}/lib/libtcmalloc.so
+if [ -z "${TC_MALLOC_INSTALL_PATH}" ]; then
+  echo "TC_MALLOC_INSTALL_PATH unset, by default set to ${PWD}/gperftools-2.7.90"
+  TC_MALLOC_INSTALL_PATH=${PWD}/gperftools-2.7.90
+fi
+
+export LD_PRELOAD=${LD_PRELOAD}:${TC_MALLOC_INSTALL_PATH}/.lib/libtcmalloc.so
 
 if [ -z "${JSON_PATH}" ]; then
   echo "JSON_PATH unset, by default set to ${PWD}/workloads" 
