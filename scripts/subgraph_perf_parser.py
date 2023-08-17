@@ -30,8 +30,8 @@ def main():
     with open(args.log_dir + "/subgraph_perf.csv", "w+") as f:
         writer = csv.writer(f)
         writer.writerow(["workload", "oneDNN Primitives + postops",
-                         "Anonymous compiler without coarse-grain fusion",
-                         "Anonymous compiler"])
+                         "oneDNN Graph Compiler without coarse-grain fusion",
+                         "oneDNN Graph Compiler"])
         for pack in zip(workload_names, primitive_perf, compiler_perf_wo_coarse, compiler_perf):
             writer.writerow(list(pack))
 
