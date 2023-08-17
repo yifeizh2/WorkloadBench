@@ -3,7 +3,7 @@ if [ -z "${TC_MALLOC_INSTALL_PATH}" ]; then
   TC_MALLOC_INSTALL_PATH=${PWD}/gperftools-2.7.90
 fi
 
-export LD_PRELOAD=${LD_PRELOAD}:${TC_MALLOC_INSTALL_PATH}/.lib/libtcmalloc.so
+export LD_PRELOAD=${LD_PRELOAD}:${TC_MALLOC_INSTALL_PATH}/.libs/libtcmalloc.so
 
 if [ -z "${JSON_PATH}" ]; then
   echo "JSON_PATH unset, by default set to ${PWD}/workloads" 
