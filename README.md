@@ -1,5 +1,7 @@
 # WorkloadBench
 
+[![DOI](https://zenodo.org/badge/678796724.svg)](https://zenodo.org/badge/latestdoi/678796724)
+
 This repo provides scripts for benchmarking oneDNN Primitive & oneDNN Graph Compiler's performance with benchdnn graph.
 
 [Benchdnn graph](https://github.com/oneapi-src/oneDNN/blob/master/tests/benchdnn/doc/driver_graph.md) is a benchdnn extension for performance benchmarking on workloads defined in the format of json serialization graphs.
