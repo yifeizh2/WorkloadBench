@@ -2,6 +2,7 @@ import argparse
 import re
 import csv
 import subprocess
+import os
 
 def main():
     args_parser = argparse.ArgumentParser(description='trace parser')
@@ -30,6 +31,10 @@ def main():
     for i in range(len(workload_names)):
         trace_path = args.workload_bench_dir + "/" + workload_names[i] + ".json"
         cmd = ["python", args.workload_bench_dir + "/scripts/trace_analyzer.py", "--file", trace_path, "--out", "csv"]
+        if not os.path.exists(trace_path):
+            print("Trace file:", trace_path, "not exist. Please double check instruction set availability of the hardware. "
+            "oneDNN Graph Compiler requires AVX512 for fp32 workloads, and AVX512VNNI for int8 workloads.")
+            exit()
         with subprocess.Popen(cmd, stdout=subprocess.PIPE, bufsize=1, universal_newlines=True) as p:
             partition_time = []
             reorder_time = 0.0
